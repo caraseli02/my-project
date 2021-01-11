@@ -7,24 +7,6 @@
           class="z-20 pantone absolute left-0 max-w-sm items bg-white
                   grid gap-2 grid-cols-2
                   px-1 transition duration-500">
-        <!--<section class="hidden z-20 rounded-lg col-span-2 flex">
-          <a href="#" class="w-1/2 z-0 flex justify-center items-center">
-            <g-image alt="Placeholder" class="block w-32 rounded my-4"
-                     :src="item.items.original['src']"></g-image>
-          </a>
-          <div class="w-1/2 px-6 mt-4 flex flex-col justify-center">
-            <h4 class="flex justify-between flex-wrap w-full font-bold text-lg mb-2">{{ item.items.original['mark'] }}
-              <span
-                  class="text-sm">{{ item.items.original['price'] }}</span></h4>
-            <p class="text-xs text-gray-700 mb-2">{{ item.items.original['caption'] }}</p>
-            <span class="mb-4">ref: {{ item.items.original['ref'] }}</span>
-            <a
-                class="btnN"
-                :href="item.items.original['href']">
-              Comprar
-            </a>
-          </div>
-        </section>-->
         <!-- Column -->
         <div class=" h-full col-span-2 flex justify-center">
           <div class="my-1 px-1">
@@ -68,21 +50,7 @@
           </div>
         </div>
         <!-- END Column -->
-        <!--<section
-            v-for="(option , index) in item.items.options"
-            :key="index"
-            class="setNeo rounded hidden"
-        >
-          <a :href="option.href" class="z-0 flex justify-center items-center w-32 m-auto">
-            <g-image alt="Placeholder" class="block w-auto mt-2 h-32 rounded-lg"
-                     :src="option.src"></g-image>
-          </a>
-          <div class=" px-2 flex flex-col justify-around h-12">
-            <h4 class="flex flex-wrap justify-between text-sm mb-1">{{ option.mark }} <span>{{ option.price }}</span>
-            </h4>
-            <span class="text-xs">{{ option.ref }}</span>
-          </div>
-        </section>-->
+
         <!-- Column -->
         <div
             v-for="option in item.items.options"
@@ -124,21 +92,20 @@
         </div>
         <!-- END Column -->
       </section>
-      <ul class="z-30 setSize flex h-full bg-black w-full md:max-w-sm justify-around items-center setRadius">
+      <ul class="z-30 setSize flex h-full bg-gray-100 w-full md:max-w-sm justify-around items-center setRadius">
         <li
             v-for="(item, index) in items.slice(clothStart, clothEnd)"
             :key="index"
             class="clothBtn"
         >
           <span
-              class="h-full px-2 pb-2 transition rounded duration-500 ease-in"
-              :class="item.name === showItems? 'text-black bg-white' : 'bg-black text-white'"
+              class="h-full p-4 transition rounded duration-500 ease-in absolute top-0 mt-64"
               @click="getItemName(item.name)"
           >
-            {{ item.name }}
+             <span class="relative inline-flex rounded-full h-4 w-4 bg-white shadow-inner"></span>
           </span>
         </li>
-        <span @click="clothMove" class="text-white clothBtn">>></span>
+        <!--<span @click="clothMove" class="text-black clothBtn">>></span>-->
       </ul>
     </div>
   </article>

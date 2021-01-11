@@ -54,8 +54,8 @@ module.exports = {
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Index',
-                path: './content/index/**/*.md',
+                typeName: 'Looks',
+                path: './content/looks/**/*.md',
                 refs: {
                     author: 'Author',
                     tags: {
@@ -74,6 +74,10 @@ module.exports = {
         Blog: [{
             path: '/blog/:title',
             component: './src/templates/BlogEntry.vue'
+        }],
+        Looks: [{
+            path: '/looks/:title',
+            component: './src/templates/LooksEntry.vue'
         }],
         Category: [{
             path: '/category/:title',

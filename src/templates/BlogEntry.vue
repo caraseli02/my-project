@@ -7,7 +7,7 @@
           v-html="$page.blog.title"
         ></h1>
         <div class="text-sm md:text-base text-gray-600 flex justify-center">
-          <!--<p class="author">{{ $page.blog.author.name }}</p>-->
+          <p class="author">{{ $page.blog.author.name }}</p>
           <p class="px-2">—</p>
           <time :datetime="$page.blog.datetime">{{ $page.blog.humanTime }}</time>
           <p class="px-2">—</p>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="content post md:px-16">
-
+      
         <p v-html="$page.blog.excerpt"></p>
 
         <div v-html="$page.blog.content"></div>
@@ -35,13 +35,13 @@
             <g-link
               :to="tag.path"
               class="inline-block border border-pink-300 px-4 py-2 text-pink-500 text-xs font-semibold rounded hover:text-white hover:bg-pink-500 hover:border-pink-500"
-
+              
             >{{ tag.title}}</g-link>
           </li>
         </ul>
       </div>
 
-
+      
     </section>
   </Layout>
 </template>
@@ -73,7 +73,7 @@
     }
 
 
-
+    
   }
 </page-query>
 
