@@ -1,7 +1,7 @@
 <template>
   <header
     id="header"
-    class="h-16 header setColor flex flex-col md:flex-row md:justify-between items-start p-4 md:p-6"
+    class="h-16 header flex flex-col md:flex-row md:justify-between items-start p-4 md:p-6 z-20 w-full bg-gradient-to-b from-orange-200 to-transparent"
     role="banner"
   >
     <g-link
@@ -40,9 +40,7 @@ export default {
 </script>
 
 <style scoped>
-.setColor{
-  background-color: #e1c4ae;
-}
+
 </style>
 
 <static-query>

@@ -6,7 +6,7 @@
       id="wrapper"
       class="wrapper md:pb-0 flex flex-col relative min-h-screen"
     >
-      <HeaderPartial />
+      <HeaderPartial class="absolute" />
 
       <main id="main" class="main inner flex flex-1 flex-col py-0">
         <slot />
@@ -54,8 +54,8 @@ export default {
   border-radius: 10px;
   z-index: 2;
   overflow: hidden;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
 }
 .glass-dark {
   border: 2px solid rgba(72, 71, 71, 0.2);
@@ -72,8 +72,8 @@ export default {
   width: 1.7em;
   height: 1.7em;
   position: absolute;
-  right: -30px;
-  top:35%;
+  right: 5px;
+  top:30%;
 }
 
 .svg-icon path,

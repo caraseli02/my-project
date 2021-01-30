@@ -2,8 +2,12 @@
   <article>
     <!-- ======================== -->
     <!-- Just Copy The Code Below -->
-    <section class="main-card ">
-      <g-link :to="looks[lookNr].node.path" class="">
+    <section class="main-card">
+      <g-link
+        v-if="!flipped"
+        :to="looks[lookNr].node.path"
+        class="absolute z-20 transform rotate-90 -translate-x-32 translate-y-56 lg:rotate-0 lg:right-0 lg:translate-x-0 lg:translate-y-10"
+      >
         <h2
           class="lookAnimateText p-2 pl-4 mr-4 border-none rounded-l-none glass-dark text-gray-300 max-w-xl"
         >
@@ -11,167 +15,187 @@
         </h2></g-link
       >
       <!-- <p class="lookAnimateText">{{ looks[lookNr].node.excerpt }}</p> -->
-      <div class="card-content d-flex mt-4 md:mt-10">
-        <transition name="flip">
-          <div
-            :key="flipped"
-            v-on:click="toggleCard()"
-            class="relative z-10 ml-10 mb-2"
-          >
-            <div v-if="!flipped" class="content-left xl:h-screen w-64">
+      <div class="card-content d-flex md:mt-10">
+        <!-- <transition name="flip"> -->
+        <div :key="flipped" class="relative z-10">
+          <div v-if="!flipped" class="content-left xl:h-screen w-full">
+            <!-- <g-image
+              class="mini-img lookAnimateImg"
+              :alt="looks[lookNr].node.image_caption"
+              :src="looks[lookNr].node.image"
+              v-on:click.self="toggleCard()"
+            ></g-image> -->
+            <g-link :to="looks[lookNr].node.path">
               <g-image
                 class="mini-img lookAnimateImg"
                 :alt="looks[lookNr].node.image_caption"
                 :src="looks[lookNr].node.image"
-              ></g-image>
-              <svg
-                class="absolute top-0 ml-2 mt-2 shadow-lg"
+              ></g-image
+            ></g-link>
+            <g-link
+              :to="looks[lookNr].node.path"
+              class="absolute bottom-0 right-0 mr-8 mb-32"
+              ><svg
+                class="text-lg animate-pulse shadow-lg bg-gray-100 p-1 rounded-lg"
                 aria-hidden="true"
                 focusable="false"
-                width=".8em"
+                width="1.5em"
                 :class="isHovering ? 'animate-pulse' : ''"
-                height="1.1em"
+                height="1.5em"
                 preserveAspectRatio="xMidYMid meet"
                 viewBox="0 0 1024 1056"
               >
                 <path
                   d="M1023 959l-84-504q-5-49-44-84t-88-35h-71v-85q0-48-16.5-91.5t-46-75.5t-71-50.5T513 15q-64 0-115.5 32T317 133t-29 118v85h-77q-16 0-32 4.5t-30 12t-26 18.5t-21 24t-15 28t-8 30L2 958q-5 40 15 62q19 21 54 21h873q23 0 38-7t24-17q20-23 17-58zM352 251q0-72 45.5-122T513 79q35 0 65 13.5t50.5 37t32 55T672 251v85H352v-85zm595 725l-872 1q-12 0-10-11l77-504q2-12 8-23.5t15.5-20T187 405t24-5h77v73q-7 5-13 10.5T265 496t-6.5 15.5T256 528q0 27 18.5 45.5T320 592t45.5-18.5T384 528q0-36-32-55v-73h320v73q-32 19-32 55q0 27 18.5 45.5T704 592t45.5-18.5T768 528q0-36-32-55v-73h71q6 0 12 1.5t12 4t11.5 6t10 7.5t8.5 9t7 11t5 12t3 13l83 503q1 4-2 6.5t-10 2.5z"
                   fill="gray"
-                />
-              </svg>
-              <span class="absolute bottom-0 right-0 mr-4 mb-2">{{
-                `${lookNr + 1} / ${looksCount}`
-              }}</span>
-            </div>
-            <vue-glide
-              v-model="active"
-              v-if="flipped"
-              class="content-left-revers grid grid-cols-1 grid-rows-1 grid-flow-col gap-1 z-10"
-              :per-view="1"
+                /></svg
+            ></g-link>
+            <span
+              class="absolute bottom-0 right-0 mr-6 mb-40 text-5xl animate-pulse text-gray-300"
+              >{{ ` 0${lookNr + 1}` }}</span
             >
-              <vue-glide-slide class="col-span-2 relative">
-                <figure>
-                  <g-image
-                    :src="looks[lookNr].node.cloth[0].items.original['src']"
-                    class=""
-                  ></g-image>
-                  <span
-                    @click.stop="toggleItemInfo"
-                    class="absolute top-0 font-bold w-12 h-12 rounded-full flex justify-center items-center z-20 shadow-lg"
-                    >i</span
-                  >
-                  <transition name="flip">
-                    <figcaption
-                      v-if="itemInfo"
-                      class="itemInfo shadow-lg absolute w-full top-0"
-                    >
-                      <ul class="flex justify-between h-32 flex-col">
-                        <li class="text-center text-3xl font-bold">
-                          {{
-                            looks[lookNr].node.cloth[0].items.original["mark"]
-                          }}
-                        </li>
-                        <li class="flex justify-between text-left mx-3 mb-2">
-                          <span>{{
-                            looks[lookNr].node.cloth[0].items.original["price"]
-                          }}</span>
-                          <span>{{
-                            looks[lookNr].node.cloth[0].items.original["ref"]
-                          }}</span>
-                        </li>
-                      </ul>
-                    </figcaption>
-                  </transition>
-                </figure>
-              </vue-glide-slide>
-              <vue-glide-slide class="col-span-2 relative">
-                <figure>
-                  <g-image
-                    :src="looks[lookNr].node.cloth[0].items.options[0]['src']"
-                    class="col-span-2 z-10"
-                  ></g-image>
-                  <span
-                    @click.stop="toggleItemInfo"
-                    class="absolute top-0 font-bold w-12 h-12 rounded-full flex justify-center items-center z-20 shadow-lg"
-                    >i</span
-                  >
-                  <transition name="flip">
-                    <figcaption
-                      v-if="itemInfo"
-                      class="itemInfo shadow-lg absolute w-full bg-white top-0"
-                    >
-                      <ul class="flex justify-between h-32 flex-col">
-                        <li class="text-center text-3xl font-bold">
-                          {{
-                            looks[lookNr].node.cloth[0].items.options[0]["mark"]
-                          }}
-                        </li>
-                        <li class="flex justify-between text-left mx-3 mb-2">
-                          <span>{{
-                            looks[lookNr].node.cloth[0].items.options[0][
-                              "price"
-                            ]
-                          }}</span>
-                          <span>{{
-                            looks[lookNr].node.cloth[0].items.options[0]["ref"]
-                          }}</span>
-                        </li>
-                      </ul>
-                    </figcaption>
-                  </transition>
-                </figure>
-              </vue-glide-slide>
-              <vue-glide-slide class="col-span-2 relative">
-                <figure>
-                  <g-image
-                    :src="looks[lookNr].node.cloth[0].items.options[0]['src']"
-                    class="col-span-2"
-                  ></g-image>
-                  <span
-                    @click.stop="toggleItemInfo"
-                    class="absolute top-0 font-bold w-12 h-12 rounded-full flex justify-center items-center z-20 shadow-lg"
-                    >i</span
-                  >
-                  <transition name="flip">
-                    <figcaption
-                      v-if="itemInfo"
-                      class="itemInfo shadow-lg absolute w-full bg-white top-0"
-                    >
-                      <ul class="flex justify-between h-32 flex-col">
-                        <li class="text-center text-3xl font-bold">
-                          {{
-                            looks[lookNr].node.cloth[0].items.options[1]["mark"]
-                          }}
-                        </li>
-                        <li class="flex justify-between text-left mx-3 mb-2">
-                          <span>{{
-                            looks[lookNr].node.cloth[0].items.options[1][
-                              "price"
-                            ]
-                          }}</span>
-                          <span>{{
-                            looks[lookNr].node.cloth[0].items.options[1]["ref"]
-                          }}</span>
-                        </li>
-                      </ul>
-                    </figcaption>
-                  </transition>
-                </figure>
-              </vue-glide-slide>
-            </vue-glide>
           </div>
-        </transition>
-        <div class="content-right mt-2 md:mt-8 lg:w-1/2">
-          <vue-glide v-model="activeSlide" :options="options" class="rounded-none flex flex-col">
-            <template slot="control">
-              <!-- <button data-glide-dir="<">
+          <vue-glide
+            v-model="active"
+            v-if="flipped"
+            class="content-left-revers grid grid-cols-1 grid-rows-1 grid-flow-col gap-1 z-10 mt-16"
+            :per-view="1"
+          >
+            <vue-glide-slide class="col-span-2 relative">
+              <figure>
+                <!-- <g-image
+                  :src="looks[lookNr].node.cloth[0].items.original['src']"
+                  class="mx-auto"
+                  v-on:click.self="toggleCard()"
+                ></g-image> -->
+                <g-image
+                  :src="looks[lookNr].node.cloth[0].items.original['src']"
+                  class="mx-auto"
+                ></g-image>
+
+                <figcaption class="itemInfo w-full">
+                  <ul
+                    class="flex justify-between px-4 pt-2 h-24 glass-light flex-col"
+                  >
+                    <li class="text-left text-3xl font-bold">
+                      {{ looks[lookNr].node.cloth[0].items.original["mark"] }}
+                    </li>
+                    <li class="flex justify-between text-left mb-2">
+                      <span>{{
+                        looks[lookNr].node.cloth[0].items.original["caption"]
+                      }}</span>
+                      <span
+                        >Ref:
+                        {{
+                          looks[lookNr].node.cloth[0].items.original["ref"]
+                        }}</span
+                      >
+                    </li>
+                  </ul>
+                </figcaption>
+              </figure>
+            </vue-glide-slide>
+            <vue-glide-slide class="col-span-2 relative">
+              <figure>
+                <!-- <g-image
+                  v-on:click.self="toggleCard()"
+                  :src="looks[lookNr].node.cloth[0].items.options[0]['src']"
+                  class="col-span-2 z-10"
+                ></g-image> -->
+                <g-image
+                  :src="looks[lookNr].node.cloth[0].items.options[0]['src']"
+                  class="col-span-2 z-10"
+                ></g-image>
+                <figcaption class="itemInfo w-full">
+                  <ul
+                    class="flex justify-between px-4 pt-2 h-24 glass-light flex-col"
+                  >
+                    <li class="text-left text-3xl font-bold">
+                      {{ looks[lookNr].node.cloth[0].items.options[0]["mark"] }}
+                    </li>
+                    <li class="flex justify-between text-left mb-2">
+                      <span>{{
+                        looks[lookNr].node.cloth[0].items.options[0]["caption"]
+                      }}</span>
+                      <span
+                        >Ref:
+                        {{
+                          looks[lookNr].node.cloth[0].items.options[0]["ref"]
+                        }}</span
+                      >
+                    </li>
+                  </ul>
+                </figcaption>
+              </figure>
+            </vue-glide-slide>
+            <vue-glide-slide class="col-span-2 relative">
+              <figure>
+                <!-- <g-image
+                  v-on:click.self="toggleCard()"
+                  :src="looks[lookNr].node.cloth[0].items.options[0]['src']"
+                  class="col-span-2"
+                ></g-image> -->
+                <g-image
+                  :src="looks[lookNr].node.cloth[0].items.options[0]['src']"
+                  class="col-span-2"
+                ></g-image>
+                <figcaption class="itemInfo w-full">
+                  <ul
+                    class="flex justify-between px-4 pt-2 h-24 glass-light flex-col"
+                  >
+                    <li class="text-left text-3xl font-bold">
+                      {{ looks[lookNr].node.cloth[0].items.options[1]["mark"] }}
+                    </li>
+                    <li class="flex justify-between text-left mb-2">
+                      <span>{{
+                        looks[lookNr].node.cloth[0].items.options[1]["caption"]
+                      }}</span>
+                      <span
+                        >Ref:
+                        {{
+                          looks[lookNr].node.cloth[0].items.options[1]["ref"]
+                        }}</span
+                      >
+                    </li>
+                  </ul>
+                </figcaption>
+              </figure>
+            </vue-glide-slide>
+            <template class="control" slot="control">
+              <button
+                class="setPosition transform translate-x-0 md:translate-y-6"
+                :class="active === 0 ? 'animate-pulse' : ''"
+                data-glide-dir="=0"
+              ></button>
+              <button
+                class="setPosition transform translate-x-12 md:translate-y-6"
+                :class="active === 1 ? 'animate-pulse' : ''"
+                data-glide-dir="=1"
+              ></button>
+              <button
+                class="setPosition transform translate-x-24 md:translate-y-6"
+                :class="active === 2 ? 'animate-pulse' : ''"
+                data-glide-dir="=2"
+              ></button>
+              <button class="next" data-glide-dir=">">&#10148;</button>
+            </template>
+          </vue-glide>
+        </div>
+        <!-- </transition> -->
+        <div
+          v-if="!flipped"
+          class="content-right w-full -mb-10 md:mt-8 lg:w-2/4 lg:absolute lg:mb-64 lg:right-0"
+        >
+          <vue-glide v-model="activeSlide" :options="options" class="">
+            <!-- <template slot="control">
+              <button data-glide-dir="<">
                 <svg class="svg-icon" viewBox="0 0 20 20">
                   <path
                     fill="none"
                     d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"
                   ></path>
                 </svg>
-              </button> -->
+              </button>
               <button data-glide-dir=">">
                 <svg class="svg-icon glass-ds rounded-lg" viewBox="0 0 20 20">
                   <path
@@ -180,14 +204,14 @@
                   ></path>
                 </svg>
               </button>
-            </template>
+            </template> -->
             <vue-glide-slide v-for="(look, index) in looks" :key="index">
               <picture @click="setLook(index)">
                 <g-image
                   v-if="look.node.image"
                   :alt="look.node.image_caption"
                   :src="look.node.image"
-                  class="opacity-50 w-32 lg:w-40"
+                  class="opacity-50 w-16 lg:w-40 mx-auto"
                   :class="lookNr === index ? 'opacity-100' : ''"
                 ></g-image>
               </picture>
@@ -213,7 +237,7 @@ export default {
         bound: true,
         breakpoints: {
           450: {
-            perView: 3,
+            perView: 4,
           },
           1024: {
             perView: 4,
@@ -286,7 +310,7 @@ query {
         title
         path
         excerpt
-        image(width:780)
+        image(width:1080)
         humanTime : created(format:"Do MMMM YYYY")
         datetime : created(format:"ddd MMM DD YYYY hh:mm:ss zZ")
         author {
@@ -324,6 +348,46 @@ query {
 </page-query>
 
 <style scoped lang="scss">
+.next {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: 3rem;
+  height: 3rem;
+  outline: none;
+}
+
+.setPosition {
+  position: absolute;
+  left: calc(12.5vw - 3rem);
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  outline: none;
+
+  &:before {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 65%;
+    height: 10%;
+    background-color: #2f517b;
+    border-radius: 20px;
+  }
+
+  /* Display this style when screen-width is lower than 992px */
+  @media only screen and (min-width: 492px) {
+    bottom: 20px;
+  }
+}
+
+.iconPosition {
+  position: absolute;
+  top: 10px;
+  left: 48%;
+}
 
 /*TRANSITION CSS*/
 
@@ -378,7 +442,7 @@ p {
 
 .main-card .card-content {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .main-card .content-left {
@@ -391,36 +455,38 @@ p {
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px 0px 0px 10px;
   width: 100%;
-  height:80vh;
+  height: 100vh;
 }
 
 .main-card .content-left-revers {
   position: relative;
-  width: 300px;
-  height: 100%;
+  width: auto;
+  height: 85vh;
   background: rgba(240, 235, 235, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px 0px 0px 10px;
   overflow: hidden;
 }
 
-.main-card .content-left img {
-  width: inherit;
-  height: inherit;
-  object-fit: contain;
-  object-position: center;
-}
+// .main-card .content-left img {
+//   width: inherit;
+//   height: inherit;
+//   object-fit: contain;
+//   object-position: center;
+// }
 
-.main-card .content-left-revers img {
-  width: inherit;
-  height: inherit;
-  object-fit: contain;
-  object-position: center;
-}
+// .main-card .content-left-revers img {
+//   width: inherit;
+//   height: inherit;
+//   object-fit: contain;
+//   object-position: center;
+// }
 
 .main-card .content-right {
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
   background: rgba(240, 235, 235, 0.3);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   backdrop-filter: blur(5px);
@@ -429,7 +495,6 @@ p {
   margin-right: 30px;
   padding: 10px;
   order: -1;
-  max-height: 45vh;
 }
 
 .main-card .tag {
@@ -494,11 +559,11 @@ p {
 
   .main-card .content-left {
     width: 100%;
-    height: 50vh;
+    height: 95vh;
   }
   .main-card .content-left-revers {
     width: 100%;
-    height: 50vh;
+    height: 90vh;
   }
 
   .main-card .content-right {

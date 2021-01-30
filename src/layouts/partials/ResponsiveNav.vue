@@ -23,9 +23,9 @@
 
     <button
       id="mobile-nav-toggle"
-      class="mobile-nav-toggle block fixed h-12 w-24 right-0 top-0 rounded-b-full
+      class="mobile-nav-toggle  fixed h-12 w-24 right-0 top-0 rounded-b-full
             flex items-center justify-center
-            font-bold border-none bg-ds text-white z-50 focus:outline-none md:hidden"
+            font-bold border-none bg-transparent text-white z-50 focus:outline-none md:hidden"
       :class="toggleNav ? 'menu-toggle-active': ''"
       aria-expanded="false"
       aria-controls="mobile-nav"

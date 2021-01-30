@@ -1,5 +1,5 @@
 <template>
-    <header class="white_gradient lg:px-16 px-8 bg-transparent flex flex-wrap items-center z-10">
+    <header class="white_gradient lg:px-16 px-8 bg-transparent flex flex-wrap items-center z-10 w-64">
         <div class="flex-1 flex justify-between items-center z-10">
             <g-link to="/" class="home-link"
             >

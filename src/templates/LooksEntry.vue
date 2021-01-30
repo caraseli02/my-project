@@ -11,33 +11,33 @@
       <!--Background Animation-->
       <!--Image Section-->
       <figure
-        class="img z-10 my-4 w-full flex flex-col justify-end items-end mx-auto absolute top-0 md:bottom-0"
+        class="img z-10 w-full flex flex-col justify-end items-end mx-auto absolute top-0 md:bottom-0"
         @click="itemNr = null"
       >
         <g-image
-          class="max-w-xs pl-20 z-10 md:max-w-md md:mr-10"
+          class="z-10 md:max-w-md md:mr-10"
           :alt="$page.looks.image_caption"
           :src="$page.looks.image"
         />
         <figcaption
-          class="text-center text-2xl font-bold italic text-gray-600 absolute top-0 right-0 z-0 transform translate-y-2 -translate-x-48 w-1/2 title"
+          class="text-lg text-center pt-3 font-bold absolute top-0 left-0 z-20 mx-auto w-full bg-gradient-to-b from-black to-transparent"
         >
-          {{ $page.looks.title }}
+          <h2 class="mx-auto px-2 text-gray-300 w-2/3">
+            {{ $page.looks.title }}
+          </h2>
         </figcaption>
       </figure>
       <!--Image Section-->
       <!--Items Section-->
       <vue-glide
-        class="glass-light md:w-1/2 lg:w- z-20 animate"
+        class="md:w-1/2 lg:w-full z-20 animate"
         :options="options"
         v-model="active"
       >
         <vue-glide-slide>
-          <div
-            class="flex justify-around w-full mb-6 pt-4 rounded-lg md:flex-col"
-          >
+          <div class="flex justify-around w-full rounded-lg md:flex-col">
             <div v-for="(item, index) in items" :key="index" class="">
-              <figure class="bg-transparent">
+              <figure class="bg-transparent" v-if="item.items.original">
                 <picture
                   class="flex justify-center z-10 md:justify-start md:ml-8 md:mb-4 md:relative"
                 >
@@ -53,15 +53,15 @@
                   </g-link>
                 </picture>
                 <figcaption
-                  class="text-center flex flex-col justify-center pt-4 pb-2 w-24 bg-gray-200 transform -translate-y-2 z-0 md:absolute md:translate-x-40 md:-translate-y-48 md:text-xl md:w-40 md:h-40"
+                  class="text-center flex flex-col justify-center pt-4 pb-2 w-32 text-base bg-gray-200 transform -translate-y-2 z-0 md:absolute md:translate-x-40 md:-translate-y-48 md:text-xl md:w-40 md:h-40 uppercase"
                 >
                   {{ item.items.original["mark"] }}
                   <span class="text-xs md:text-lg">{{
                     item.items.original["ref"]
                   }}</span>
-                  <span class="text-xs md:text-lg">{{
+                  <!-- <span class="text-xs md:text-lg">{{
                     item.items.original["price"]
-                  }}</span>
+                  }}</span> -->
                 </figcaption>
               </figure>
             </div>
@@ -72,7 +72,7 @@
             class="flex justify-around w-full mb-6 pt-4 rounded-lg md:flex-col"
           >
             <div v-for="(item, index) in items" :key="index" class="">
-              <figure class="bg-transparent">
+              <figure class="bg-transparent" v-if="item.items.options[0]">
                 <picture
                   class="flex justify-center z-10 md:justify-start md:ml-8 md:mb-4 md:relative"
                 >
@@ -88,15 +88,15 @@
                   </g-link>
                 </picture>
                 <figcaption
-                  class="text-center flex flex-col justify-center pt-4 pb-2 w-24 bg-gray-200 transform -translate-y-2 z-0 md:absolute md:translate-x-40 md:-translate-y-48 md:text-xl md:w-40 md:h-40"
+                  class="text-center flex flex-col justify-center pt-4 pb-2 w-32 text-base bg-gray-200 transform -translate-y-2 z-0 md:absolute md:translate-x-40 md:-translate-y-48 md:text-xl md:w-40 md:h-40 uppercase"
                 >
                   {{ item.items.options[0]["mark"] }}
                   <span class="text-xs md:text-lg">{{
                     item.items.options[0]["ref"]
                   }}</span>
-                  <span class="text-xs md:text-lg">{{
+                  <!-- <span class="text-xs md:text-lg">{{
                     item.items.options[0]["price"]
-                  }}</span>
+                  }}</span> -->
                 </figcaption>
               </figure>
             </div>
@@ -107,7 +107,7 @@
             class="flex justify-around w-full mb-6 pt-4 rounded-lg md:flex-col"
           >
             <div v-for="(item, index) in items" :key="index" class="">
-              <figure class="bg-transparent">
+              <figure class="bg-transparent" v-if="item.items.options[1]">
                 <picture
                   class="flex justify-center z-10 md:justify-start md:ml-8 md:mb-4 md:relative"
                 >
@@ -123,15 +123,15 @@
                   </g-link>
                 </picture>
                 <figcaption
-                  class="text-center flex flex-col justify-center pt-4 pb-2 w-24 bg-gray-200 transform -translate-y-2 z-0 md:absolute md:translate-x-40 md:-translate-y-48 md:text-xl md:w-40 md:h-40"
+                  class="text-center flex flex-col justify-center pt-4 pb-2 w-32 text-base bg-gray-200 transform -translate-y-2 z-0 md:absolute md:translate-x-40 md:-translate-y-48 md:text-xl md:w-40 md:h-40 uppercase"
                 >
                   {{ item.items.options[1]["mark"] }}
                   <span class="text-xs md:text-lg">{{
                     item.items.options[1]["ref"]
                   }}</span>
-                  <span class="text-xs md:text-lg">{{
+                  <!-- <span class="text-xs md:text-lg">{{
                     item.items.options[1]["price"]
-                  }}</span>
+                  }}</span> -->
                 </figcaption>
               </figure>
             </div>
@@ -153,7 +153,9 @@
             :class="active === 2 ? 'animate-pulse' : ''"
             data-glide-dir="=2"
           ></button>
-          <button class="next" data-glide-dir=">">&#10148;</button>
+          <button class="next white text-white" data-glide-dir=">">
+            &#10148;
+          </button>
         </template>
       </vue-glide>
     </article>
@@ -205,7 +207,7 @@ query($id: ID!) {
     }
     title
     path
-    image(width:750, height: 1000)
+    image(width:1050)
     image_caption
     excerpt
     content
@@ -293,7 +295,7 @@ export default {
 <style scoped lang="scss">
 .setSize {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: 100vh;
 }
 
 .next {
@@ -312,6 +314,8 @@ export default {
   width: 3rem;
   height: 3rem;
   outline: none;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 
   &:before {
     content: "";
@@ -319,9 +323,9 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 65%;
-    height: 10%;
-    background-color: #2f517b;
+    width: 55%;
+    height: 20%;
+    background-color: #e7eaed;
     border-radius: 20px;
   }
 

@@ -1,18 +1,5 @@
 <template>
   <Layout>
-    <!-- 
-    <section class="pinteresGrid">
-      <FlipCard
-          class=""
-          v-for="entry in $page.allBlog.edges"
-          :key="entry.node.id"
-          :look="entry"
-      /> 
-    </section>
-    <Look v-for="entry in $page.allBlog.edges"
-          :key="entry.node.id"
-          :look="entry"
-    />-->
     <blog-looks/>
   </Layout>
 </template>
@@ -85,15 +72,15 @@ query {
 <style scoped lang="scss">
 .pinteresGrid {
   /* fit in up to 5 columns of 180px wide tiles, 20px gutters: 5*180 + 4*20: */
-  // max-width: 80vw;
-  // margin: 0 auto;
-  // display: grid;
-  // grid-gap: 20px;
-  // /* fit as many columns as possible, 180px wide each: */
-  // grid-template-columns: repeat(auto-fill, 350px);
-  // /* each row is 20px high -- we always span 2+ */
-  // grid-auto-rows: minmax(20px, auto);
-  // justify-content: center;
+  max-width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 20px;
+  /* fit as many columns as possible, 180px wide each: */
+  grid-template-columns: repeat(auto-fill, 350px);
+  /* each row is 20px high -- we always span 2+ */
+  grid-auto-rows: minmax(20px, auto);
+  justify-content: center;
 }
 </style>
 

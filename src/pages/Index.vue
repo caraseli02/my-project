@@ -1,18 +1,7 @@
 <template>
-  <Layout class="bgTablet">
+  <Layout class="bgTablet bg-ds">
     <!--Landing Page-->
     <Landing />
-    <!--Visual Separatos-->
-    <!-- <CubicTop class="block sm:hidden" /> -->
-    <!--Slider-->
-    <!-- <section id="looks" class="">
-      <h2
-        class="text-center text-lg transform -translate-y-12 md:translate-y-0 block"
-      >
-        Top 3 Looks
-      </h2>
-      <index-looks />
-    </section> -->
   </Layout>
 </template>
 
