@@ -8,74 +8,35 @@ image: ./images/DailyStyleLooks3.jpg
 image_caption: Photo by DailyStyle
 author: DailyStyle
 cloth: [
- {name: "bolso",
-    items: {"original" : {src: "https://st.mngbcn.com/rcs/pics/static/T7/fotos/S20/77061001_99_B.jpg?ts=1599739426925&imwidth=326&imdensity=1", alt: "bolso mango", 
-                          caption: "Bolso bandolera cadena1.", ref: "77061001", mark: "Mango1", price: "19.99",
-                          href: "https://shop.mango.com/es/mujer/bolsos-baguettes/bolso-bandolera-cadena_77061001.html"
-              },
-             "options" : [
-                {src: "https://static.zara.net/photos///2020/I/1/1/p/6510/610/040/2/w/595/6510610040_1_1_1.jpg?ts=1602583389176", 
-                 href: "https://www.zara.com/es/es/bolso-de-hombro-piel-p16510610.html?v1=76666289&v2=1549325",
-                 alt: "bolso Zara", 
-                 ref: "Negro - 6510/610",
-                 mark: "Zara", 
-                 price: "49.95",
-                 },
-                 {src: "https://static.zara.net/photos///2020/I/1/1/p/6510/610/040/2/w/595/6510610040_1_1_1.jpg?ts=1602583389176", 
-                 href: "https://www.zara.com/es/es/bolso-de-hombro-piel-p16510610.html?v1=76666289&v2=1549325",
-                 alt: "bolso Zara", 
-                 ref: "Negro - 6510/610",
-                 mark: "Zara", 
-                 price: "49.95",
-                 },
-              ]
-            }
- },
- {name: "vestido",
-     items: {"original" : {src: "https://st.mngbcn.com/rcs/pics/static/T7/fotos/S20/77061001_99_B.jpg?ts=1599739426925&imwidth=326&imdensity=1", alt: "bolso mango", 
-                           caption: "Bolso bandolera cadena2.", ref: "77061001", mark: "Mango2", price: "19.99",
-                           href: "https://shop.mango.com/es/mujer/bolsos-baguettes/bolso-bandolera-cadena_77061001.html"
-               },
-              "options" : [
-                 {src: "https://static.zara.net/photos///2020/I/1/1/p/6510/610/040/2/w/595/6510610040_1_1_1.jpg?ts=1602583389176", 
-                  href: "https://www.zara.com/es/es/bolso-de-hombro-piel-p16510610.html?v1=76666289&v2=1549325",
-                  alt: "bolso Zara", 
-                  ref: "Negro - 6510/610",
-                  mark: "Zara", 
-                  price: "49.95",
-                  },
-                  {src: "https://static.zara.net/photos///2020/I/1/1/p/6510/610/040/2/w/595/6510610040_1_1_1.jpg?ts=1602583389176", 
-                  href: "https://www.zara.com/es/es/bolso-de-hombro-piel-p16510610.html?v1=76666289&v2=1549325",
-                  alt: "bolso Zara", 
-                  ref: "Negro - 6510/610",
-                  mark: "Zara", 
-                  price: "49.95",
-                  },
-               ]
-             }
+  {
+    "name": "Bolso",
+    "items": {
+      "original": {
+        "src": "https://static.zara.net/photos///2021/V/1/1/p/6449/610/085/2/w/798/6449610085_6_1_1.jpg?ts=1611158993663",
+        "alt": "Imagen 0 de BOLSO MINI BOWLING ESTAMPADO ANIMAL de Zara",
+        "caption": "BOLSO MINI BOWLING ESTAMPADO ANIMAL",
+        "ref": "6449/610",
+        "mark": "zara",
+        "price": "17,95 EUR",
+        "href": "https://www.zara.com/es/es/bolso-mini-bowling-estampado-animal-p16449610.html?v1=86343812"
+      },
+      "options": []
+    }
   },
-  {name: "zapatos",
-       items: {"original" : {src: "https://st.mngbcn.com/rcs/pics/static/T7/fotos/S20/77061001_99_B.jpg?ts=1599739426925&imwidth=326&imdensity=1", alt: "bolso mango", 
-                             caption: "Bolso bandolera cadena3.", ref: "77061001", mark: "Mango3", price: "19.99",
-                             href: "https://shop.mango.com/es/mujer/bolsos-baguettes/bolso-bandolera-cadena_77061001.html"
-                 },
-                "options" : [
-                   {src: "https://static.zara.net/photos///2020/I/1/1/p/6510/610/040/2/w/595/6510610040_1_1_1.jpg?ts=1602583389176", 
-                    href: "https://www.zara.com/es/es/bolso-de-hombro-piel-p16510610.html?v1=76666289&v2=1549325",
-                    alt: "bolso Zara", 
-                    ref: "Negro - 6510/610",
-                    mark: "Zara", 
-                    price: "49.95",
-                    },
-                    {src: "https://static.zara.net/photos///2020/I/1/1/p/6510/610/040/2/w/595/6510610040_1_1_1.jpg?ts=1602583389176", 
-                    href: "https://www.zara.com/es/es/bolso-de-hombro-piel-p16510610.html?v1=76666289&v2=1549325",
-                    alt: "bolso Zara", 
-                    ref: "Negro - 6510/610",
-                    mark: "Zara", 
-                    price: "49.95",
-                    },
-                 ]
-               }
-    },
+  {
+    "name": "jerseis",
+    "items": {
+      "original": {
+        "src": "https://st.mngbcn.com/rcs/pics/static/T8/fotos/S20/87041009_05_D8.jpg?ts=1605521096498&imwidth=194&imdensity=1",
+        "alt": "Jersey lana cuello vuelto - Plano medio",
+        "caption": "Jersey lana cuello vuelto",
+        "ref": "87041009",
+        "mark": "mango",
+        "price": "39,99 \u20ac",
+        "href": "https://shop.mango.com/es/mujer/cardigans-y-jerseis-jerseis/jersey-lana-cuello-vuelto_87041009.html?c=05&busqref=true"
+      },
+      "options": []
+    }
+  }
 ]
 ---

@@ -1,5 +1,8 @@
 <template>
   <Layout>
+    <g-link to="/looks" class="mt-16 ml-2 text-2xl text-gray-200 absolute top-0 z-30 glass-dark rounded-full px-2 md:hidden">
+      &#8592;
+    </g-link>
     <article
       id=""
       class="relative setSize bg-gray-300 overflow-scroll flex flex-col justify-end items-center h-full md:items-start md:justify-center"
@@ -15,21 +18,49 @@
         @click="itemNr = null"
       >
         <g-image
-          class="z-10 md:max-w-md md:mr-10"
+          class="z-10 md:max-w-md"
           :alt="$page.looks.image_caption"
           :src="$page.looks.image"
         />
         <figcaption
           class="text-lg text-center pt-3 font-bold absolute top-0 left-0 z-20 mx-auto w-full bg-gradient-to-b from-black to-transparent"
         >
-          <h2 class="mx-auto px-2 text-gray-300 w-2/3">
+          <h2 class="mx-auto px-2 text-gray-200 font-bold w-2/3">
             {{ $page.looks.title }}
           </h2>
         </figcaption>
       </figure>
       <!--Image Section-->
       <!--Items Section-->
-      <vue-glide
+      <div class="flex flex-col lg:flex-row lg:justify-start justify-between w-full rounded-lg md:overflow-y-scroll md:my-16 md:flex-col z-20 ml-2 lg:w-1/2">
+        <div v-for="(item, index) in items" :key="index" class="w-32 mb-4 md:w-64 lg:ml-10 flex justify-center items-center flex-wrap">
+          <figure class="bg-transparent" v-if="item.items.original">
+            <picture
+              class="flex justify-center max-w-xs z-10"
+            >
+              <g-link
+                class="z-10"
+                type="_black"
+                :to="item.items.original['href']"
+              >
+                <g-image
+                  class="w-20 md:w-40 lg:w-64 h-full shadow-lg rounded-t-lg"
+                  :src="item.items.original['src']"
+                ></g-image>
+              </g-link>
+            </picture>
+            <figcaption
+              class="text-center flex flex-col justify-center p-2 w-32 md:w-64 text-base uppercase glass-light z-30"
+            >
+              {{ item.items.original["mark"] }}
+              <span class="text-xs md:text-lg">{{
+                item.items.original["ref"]
+              }}</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- <vue-glide
         class="md:w-1/2 lg:w-full z-20 animate"
         :options="options"
         v-model="active"
@@ -59,9 +90,9 @@
                   <span class="text-xs md:text-lg">{{
                     item.items.original["ref"]
                   }}</span>
-                  <!-- <span class="text-xs md:text-lg">{{
-                    item.items.original["price"]
-                  }}</span> -->
+                  // <span class="text-xs md:text-lg">{{
+                  //  item.items.original["price"]
+                  // }}</span> 
                 </figcaption>
               </figure>
             </div>
@@ -94,9 +125,6 @@
                   <span class="text-xs md:text-lg">{{
                     item.items.options[0]["ref"]
                   }}</span>
-                  <!-- <span class="text-xs md:text-lg">{{
-                    item.items.options[0]["price"]
-                  }}</span> -->
                 </figcaption>
               </figure>
             </div>
@@ -129,9 +157,6 @@
                   <span class="text-xs md:text-lg">{{
                     item.items.options[1]["ref"]
                   }}</span>
-                  <!-- <span class="text-xs md:text-lg">{{
-                    item.items.options[1]["price"]
-                  }}</span> -->
                 </figcaption>
               </figure>
             </div>
@@ -157,7 +182,7 @@
             &#10148;
           </button>
         </template>
-      </vue-glide>
+      </vue-glide> -->
     </article>
 
     <!-- <div class="content post md:px-16">
