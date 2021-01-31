@@ -1,11 +1,11 @@
 ---
-title: Dederis faciem
-tags: tag1, tag2, tag3
-category: Business
-excerpt: Qua opes egentes cur, et trunca carpserat tulitquemuneris foedumque patriumque pisces vices!
-created: 2019-02-05
-image: ./images/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg
-image_caption: Photo by Luasz Szmigiel on Unsplash
+title: Abrigo Camel
+tags: Looks, Moda
+category: Moda
+excerpt: Abrigo camel demuestran que funciona en cualquier ocasión
+created: 2020-01-31
+image: ./images/DailyStyleLooks4.jpg
+image_caption: Photo by DailyStyle
 author: author1
 ---
 

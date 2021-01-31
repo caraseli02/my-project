@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <g-link to="/looks" class="mt-16 ml-2 text-2xl text-gray-200 absolute top-0 z-30 glass-dark rounded-full px-2 md:hidden">
+    <g-link to="/looks" class="mt-16 ml-2 text-2xl text-gray-200 absolute top-0 z-30 rounded-full px-2 md:hidden">
       &#8592;
     </g-link>
     <article
@@ -44,7 +44,7 @@
                 :to="item.items.original['href']"
               >
                 <g-image
-                  class="w-20 md:w-40 lg:w-64 h-full shadow-lg rounded-t-lg"
+                  class="w-20 md:w-40 lg:w-64 h-full shadow-lg rounded-t-lg cover"
                   :src="item.items.original['src']"
                 ></g-image>
               </g-link>

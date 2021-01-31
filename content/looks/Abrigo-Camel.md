@@ -69,6 +69,21 @@ cloth: [
         }
       ]
     }
+  },
+  {
+    "name": "Bolso",
+    "items": {
+      "original": {
+        "src": "//michaelkors.scene7.com/is/image/MichaelKors/30T0GNMM0L-0001_1?wid=558&hei=748&op_sharpen=1&resMode=sharp2&qlt=90",
+        "alt": "Bolso satchel Carmen",
+        "caption": "Bolso satchel Carmen",
+        "ref": "30T0GNMM0L",
+        "mark": "michaelkors",
+        "price": "",
+        "href": "https://www.michaelkors.es/bolso-satchel-carmen-extrapeque%C3%B1o-de-piel-saffiano-con-tiras-decorativas/_/R-30T0GNMM0L"
+      },
+      "options": []
+    }
   }
 ]
 ---

@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <section id="container-centre" class="column centre flex-1">
-      <div class="post-header mb-12 md:mb-20">
+      <div class="post-header mb-12 md:mb-20 relative">
         <h1
-          class="page-title text-3xl md:text-center md:text-5xl lg:text-6xl"
+          class="absolute w-full mx-auto top-0 rounded-b-full glass-light text-center text-3xl md:text-center md:text-5xl lg:text-6xl"
           v-html="$page.blog.title"
         ></h1>
-        <div class="text-sm md:text-base text-gray-600 flex justify-center">
+        <div class="absolute bottom-0 -mb-8 text-sm md:text-base text-gray-600 flex justify-center">
           <p class="author">{{ $page.blog.author.name }}</p>
           <p class="px-2">—</p>
           <time :datetime="$page.blog.datetime">{{ $page.blog.humanTime }}</time>
