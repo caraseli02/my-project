@@ -1,9 +1,11 @@
 <template>
   <article class="content setSize relative z-10 max-w-3xl mx-auto">
-    <div
-      class="relative flex justify-center items-center overflow-hidden xl:ml-2"
-    >
-      <!-- <vue-glide class="transform bg-white z-10 h-screen flex flex-col justify-center items-centeroverflow-hidden
+    <transition name="transition" appear>
+      <div
+        v-if="!videoEnded"
+        class="relative flex justify-center items-center overflow-hidden xl:ml-2"
+      >
+        <!-- <vue-glide class="transform bg-white z-10 h-screen flex flex-col justify-center items-centeroverflow-hidden
                   md:clip xl:max-w-2xl" :per-view="1" :autoplay="3000" :animationDuration="10000"
         :rewindDuration="10000" :bound="true" :gap="10">
         <vue-glide-slide class="relative overflow-hidden flex justify-center items-center">
@@ -31,72 +33,75 @@
           </picture>
         </vue-glide-slide>
       </vue-glide> -->
-      <video
-        v-if="!videoEnded"
-        @ended="videoEnd()"
-        playsinline
-        autoplay
-        muted
-        poster="../assets/img/Landing/bolsoMark.jpg"
-        id="bgvid"
-        class="landingMedia"
-      >
-        <source
-          src="../assets/img/Landing/landingVideo.webm"
-          type="video/webm"
-        />
-        <source src="../assets/img/Landing/landingVideo.mp4" type="video/mp4" />
-      </video>
-      <g-image
-        class="landingMedia"
-        v-if="videoEnded"
-        src="../assets/img/Landing/bolsoMark.jpg"
-      ></g-image>
-    </div>
-    <section class="landingText" v-if="videoEnded">
-      <div
-        class="z-10 h-screen company text-white transform rotate-45 translate-y-56 translate-x-40 hidden lg:block"
-      >
-        <h6
-          class="text-5xl bg-ds w-full pl-4 rounded-r-full rounded py-6"
-          v-for="(mark, index) in marks"
-          :key="index"
+        <video
+          @ended="videoEnd()"
+          playsinline
+          autoplay
+          muted
+          poster="../assets/img/Landing/bolsoMark.jpg"
+          id="bgvid"
+          class="landingMedia"
         >
-          {{ mark }}
-        </h6>
+          <source
+            src="../assets/img/Landing/landingVideo.webm"
+            type="video/webm"
+          />
+          <source
+            src="../assets/img/Landing/landingVideo.mp4"
+            type="video/mp4"
+          />
+        </video>
       </div>
-      <div class="z-20 absolute w-full textBg glass-dark">
-        <div class="max-w-xl mx-auto w-full">
-          <h1 class="text-center text-white text-6xl font-bold">
-            <span class="text-xl">Bienvenidos a</span><br />
-            DailyStyle!
-          </h1>
 
-          <h5 class="cd-headline rotate-1">
-            <span class="cd-words-wrapper text-white text-center text-3xl">
-              <b :class="visible === 3 ? 'is-visible' : ''">️Fashion</b>
-              <b :class="visible === 2 ? 'is-visible' : ''">️Beauty</b>
-              <b :class="visible === 1 ? 'is-visible' : ''">️Outfits</b>
-            </span>
-          </h5>
-        </div>
-        <p
-          class="text-2xl text-white px-4 text-center max-w-xl mx-auto w-full p-4"
+      <section id="glass" class="landingText" v-else>
+        <g-image
+          class="landingMedia"
+          src="../assets/img/Landing/bolsoMark.jpg"
+        ></g-image>
+        <div
+          class="seq z-10 h-screen company text-white transform rotate-45 translate-y-56 translate-x-40 hidden lg:block"
         >
-          Un blog de moda para complementar mi Instagrama.
-          <g-link
-            class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
-            to="/looks"
-            >looks gallery &#8594;</g-link
+          <h6
+            class="text-5xl bg-ds w-full pl-4 rounded-r-full rounded py-6"
+            v-for="(mark, index) in marks"
+            :key="index"
           >
-          <g-link
-            class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
-            to="/blog"
-            >fashon blog &#8594;</g-link
+            {{ mark }}
+          </h6>
+        </div>
+        <div class="seq z-20 absolute w-full textBg glass-dark container">
+          <div class="max-w-xl mx-auto w-full">
+            <h1 class="text-center text-white text-6xl font-bold">
+              <span class="text-xl">Bienvenidos a</span><br />
+              DailyStyle!
+            </h1>
+
+            <h5 class="cd-headline rotate-1">
+              <span class="cd-words-wrapper text-white text-center text-3xl">
+                <b :class="visible === 3 ? 'is-visible' : ''">️Fashion</b>
+                <b :class="visible === 2 ? 'is-visible' : ''">️Beauty</b>
+                <b :class="visible === 1 ? 'is-visible' : ''">️Outfits</b>
+              </span>
+            </h5>
+          </div>
+          <p
+            class="text-2xl text-white px-4 text-center max-w-xl mx-auto w-full p-4"
           >
-        </p>
-      </div>
-    </section>
+            Un blog de moda para complementar mi Instagrama.
+            <g-link
+              class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
+              to="/looks"
+              >looks gallery &#8594;</g-link
+            >
+            <g-link
+              class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
+              to="/blog"
+              >fashon blog &#8594;</g-link
+            >
+          </p>
+        </div>
+      </section>
+    </transition>
   </article>
 </template>
 
@@ -159,6 +164,35 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.transition-enter-active,
+.transition-leave-active {
+  transition: all 2s ease;
+}
+.transition-leave-to {
+  opacity: 0;
+  transform: translate3d(600px, 0, 0);
+}
+.transition-enter{
+  opacity: 0;
+}
+
+.animation-enter-active {
+  opacity: 1;
+}
+.animation-leave-active {
+  animation: bounce-out-right 2s;
+}
+@keyframes bounce-out-right {
+  20% {
+    display: block;
+    transform: translate3d(600px, 0, 0);
+  }
+  to {
+    display: hidden;
+    transform: translate3d(600px, 0, 0);
+  }
+}
+
 .landingMedia {
   object-fit: cover;
   width: 100vw;
