@@ -257,7 +257,6 @@ query($id: ID!) {
 <script>
 import FloatingBg from "../components/utils/floatingBg";
 import PanelSplit from "../components/utils/panelSplit";
-import { Pane, Splitpanes } from "splitpanes";
 import gsap from "gsap";
 
 export default {
