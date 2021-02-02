@@ -164,31 +164,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.transition-enter-active,
-.transition-leave-active {
-  transition: all 2s ease;
+.transition-enter-active {
+  transition: all 1.5s ease;
 }
-.transition-leave-to {
+.transition-enter {
   opacity: 0;
   transform: translate3d(600px, 0, 0);
 }
-.transition-enter{
-  opacity: 0;
-}
 
 .animation-enter-active {
-  opacity: 1;
-}
-.animation-leave-active {
-  animation: bounce-out-right 2s;
+  animation: bounce-out-right 1.5s reverse;
 }
 @keyframes bounce-out-right {
   20% {
-    display: block;
-    transform: translate3d(600px, 0, 0);
+    opacity: 1;
+    transform: translate3d(-20px, 0, 0);
   }
   to {
-    display: hidden;
+    opacity: 0;
     transform: translate3d(600px, 0, 0);
   }
 }

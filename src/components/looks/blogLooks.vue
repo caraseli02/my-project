@@ -6,10 +6,10 @@
       <g-link
         v-if="!flipped"
         :to="looks[lookNr].node.path"
-        class="absolute z-20 transform rotate-90 -translate-x-32 translate-y-56 lg:rotate-0 lg:right-0 lg:translate-x-0 lg:translate-y-10"
+        class="absolute z-20"
       >
         <h2
-          class="lookAnimateText p-2 pl-4 mr-4 border-none rounded-l-none glass-dark text-gray-300 max-w-xl"
+          class=" p-2 pl-4 mr-4 border-none rounded-l-none glass-dark text-gray-300 max-w-xl text-lg"
         >
           {{ looks[lookNr].node.title }}
         </h2></g-link

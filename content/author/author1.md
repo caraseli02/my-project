@@ -1,8 +1,6 @@
 ---
 id: author1
 name: Dailystyle
-facebook: https://www.facebook.com
-twitter: https://www.twitter.com
-linkedin: https://www.linkedin.com
+instagram: https://www.instagram.com/daiilystylee/
 image: ./images/author1.png
 ---
