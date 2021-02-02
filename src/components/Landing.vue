@@ -1,11 +1,10 @@
 <template>
   <article class="content setSize relative z-10 max-w-3xl mx-auto">
-    <transition name="transition" appear>
-      <div
-        v-if="!videoEnded"
-        class="relative flex justify-center items-center overflow-hidden xl:ml-2"
-      >
-        <!-- <vue-glide class="transform bg-white z-10 h-screen flex flex-col justify-center items-centeroverflow-hidden
+    <div
+      v-show="!videoEnded"
+      class="relative video flex justify-center items-center overflow-hidden xl:ml-2"
+    >
+      <!-- <vue-glide class="transform bg-white z-10 h-screen flex flex-col justify-center items-centeroverflow-hidden
                   md:clip xl:max-w-2xl" :per-view="1" :autoplay="3000" :animationDuration="10000"
         :rewindDuration="10000" :bound="true" :gap="10">
         <vue-glide-slide class="relative overflow-hidden flex justify-center items-center">
@@ -33,75 +32,70 @@
           </picture>
         </vue-glide-slide>
       </vue-glide> -->
-        <video
-          @ended="videoEnd()"
-          playsinline
-          autoplay
-          muted
-          poster="../assets/img/Landing/bolsoMark.jpg"
-          id="bgvid"
-          class="landingMedia"
+      <video
+        @ended="videoEnd()"
+        playsinline
+        autoplay
+        muted
+        poster="../assets/img/Landing/bolsoMark.jpg"
+        id="bgvid"
+        class="landingMedia"
+      >
+        <source
+          src="../assets/img/Landing/landingVideo.webm"
+          type="video/webm"
+        />
+        <source src="../assets/img/Landing/landingVideo.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <section id="glass" class="landingText absolute top-0">
+      <g-image
+        class="landingMedia"
+        src="../assets/img/Landing/bolsoMark.jpg"
+      ></g-image>
+      <div
+        class="seq z-10 h-screen company text-white transform rotate-45 translate-y-56 translate-x-40 hidden lg:block"
+      >
+        <h6
+          class="text-5xl bg-ds w-full pl-4 rounded-r-full rounded py-6"
+          v-for="(mark, index) in marks"
+          :key="index"
         >
-          <source
-            src="../assets/img/Landing/landingVideo.webm"
-            type="video/webm"
-          />
-          <source
-            src="../assets/img/Landing/landingVideo.mp4"
-            type="video/mp4"
-          />
-        </video>
+          {{ mark }}
+        </h6>
       </div>
+      <div class="seq z-20 absolute w-full textBg glass-dark container">
+        <div class="max-w-xl mx-auto w-full">
+          <h1 class="text-center text-white text-6xl font-bold">
+            <span class="text-xl">Bienvenidos a</span><br />
+            DailyStyle!
+          </h1>
 
-      <section id="glass" class="landingText" v-else>
-        <g-image
-          class="landingMedia"
-          src="../assets/img/Landing/bolsoMark.jpg"
-        ></g-image>
-        <div
-          class="seq z-10 h-screen company text-white transform rotate-45 translate-y-56 translate-x-40 hidden lg:block"
+          <h5 class="cd-headline rotate-1">
+            <span class="cd-words-wrapper text-white text-center text-3xl">
+              <b :class="visible === 3 ? 'is-visible' : ''">️Fashion</b>
+              <b :class="visible === 2 ? 'is-visible' : ''">️Beauty</b>
+              <b :class="visible === 1 ? 'is-visible' : ''">️Outfits</b>
+            </span>
+          </h5>
+        </div>
+        <p
+          class="text-2xl text-white px-4 text-center max-w-xl mx-auto w-full p-4"
         >
-          <h6
-            class="text-5xl bg-ds w-full pl-4 rounded-r-full rounded py-6"
-            v-for="(mark, index) in marks"
-            :key="index"
+          Un blog de moda para complementar mi Instagrama.
+          <g-link
+            class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
+            to="/looks"
+            >looks gallery &#8594;</g-link
           >
-            {{ mark }}
-          </h6>
-        </div>
-        <div class="seq z-20 absolute w-full textBg glass-dark container">
-          <div class="max-w-xl mx-auto w-full">
-            <h1 class="text-center text-white text-6xl font-bold">
-              <span class="text-xl">Bienvenidos a</span><br />
-              DailyStyle!
-            </h1>
-
-            <h5 class="cd-headline rotate-1">
-              <span class="cd-words-wrapper text-white text-center text-3xl">
-                <b :class="visible === 3 ? 'is-visible' : ''">️Fashion</b>
-                <b :class="visible === 2 ? 'is-visible' : ''">️Beauty</b>
-                <b :class="visible === 1 ? 'is-visible' : ''">️Outfits</b>
-              </span>
-            </h5>
-          </div>
-          <p
-            class="text-2xl text-white px-4 text-center max-w-xl mx-auto w-full p-4"
+          <g-link
+            class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
+            to="/blog"
+            >fashon blog &#8594;</g-link
           >
-            Un blog de moda para complementar mi Instagrama.
-            <g-link
-              class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
-              to="/looks"
-              >looks gallery &#8594;</g-link
-            >
-            <g-link
-              class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
-              to="/blog"
-              >fashon blog &#8594;</g-link
-            >
-          </p>
-        </div>
-      </section>
-    </transition>
+        </p>
+      </div>
+    </section>
   </article>
 </template>
 
@@ -133,6 +127,17 @@ export default {
       window.addEventListener("resize", this.handleResize);
       this.handleResize();
     }
+  },
+  mounted() {
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.inOut", duration: 1.5 },
+    });
+
+    tl.fromTo(".video", {display: "block"}, {display: "none", duration: 3.5}).from(
+      ".landingText",
+      { delay: 0.5, x: '-100%', ease: "back", duration: 2 },
+      "-=1"
+    )
   },
   destroyed() {
     window.removeEventListener("resize", this.handleResize);

@@ -1,5 +1,5 @@
 ---
-title: Chic Style ✨🤎 
+title: Chic Style
 tags: ["looks", "fashion"]
 category: Looks
 excerpt: Con primero , con segundo, con tercero

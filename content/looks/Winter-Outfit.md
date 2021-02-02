@@ -1,5 +1,5 @@
 ---
-title: Winter Outfit ✨🤎
+title: Winter Outfit
 tags: ["looks", "fashion"]
 category: Looks
 excerpt: Con primero , con segundo, con tercero

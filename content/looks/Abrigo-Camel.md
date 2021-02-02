@@ -1,5 +1,5 @@
 ---
-title: Abrigo Camel ✨🤎 
+title: Abrigo Camel
 tags: [
   "Looks",
   "fashion"

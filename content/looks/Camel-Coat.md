@@ -1,5 +1,5 @@
 ---
-title: Camel Coat ✨🤎 
+title: Camel Coat
 tags: ["looks", "fashion"]
 category: Looks
 excerpt: Con primero , con segundo, con tercero

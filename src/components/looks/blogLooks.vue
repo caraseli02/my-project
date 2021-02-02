@@ -9,7 +9,7 @@
         class="absolute z-20"
       >
         <h2
-          class=" p-2 pl-4 mr-4 border-none rounded-l-none glass-dark text-gray-300 max-w-xl text-lg"
+          class="lookAnimateText p-2 pl-4 mr-4 border-none rounded-l-none glass-dark text-gray-300 max-w-xl text-lg"
         >
           {{ looks[lookNr].node.title }}
         </h2></g-link
@@ -187,24 +187,6 @@
           class="content-right w-full -mb-10 md:mt-8 lg:w-2/4 lg:absolute lg:mb-64 lg:right-0"
         >
           <vue-glide v-model="activeSlide" :options="options" class="">
-            <!-- <template slot="control">
-              <button data-glide-dir="<">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                  <path
-                    fill="none"
-                    d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"
-                  ></path>
-                </svg>
-              </button>
-              <button data-glide-dir=">">
-                <svg class="svg-icon glass-ds rounded-lg" viewBox="0 0 20 20">
-                  <path
-                    fill="none"
-                    d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"
-                  ></path>
-                </svg>
-              </button>
-            </template> -->
             <vue-glide-slide v-for="(look, index) in looks" :key="index">
               <picture @click="setLook(index)">
                 <g-image
@@ -233,7 +215,7 @@ export default {
   data() {
     return {
       options: {
-        // autoplay: 5000,
+        autoplay: 5000,
         bound: true,
         breakpoints: {
           450: {
