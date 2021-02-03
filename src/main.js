@@ -9,7 +9,7 @@ import "vue-glide-js/dist/vue-glide.css";
 import "~/resources/scss/main.scss";
 
 require("typeface-open-sans");
-
+import Vue from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -77,3 +77,9 @@ export default function(Vue, { router, head, isClient }) {
     },
   });
 }
+
+Vue.mixin({
+  created: function() {
+    this.gsap = gsap;
+  },
+});
