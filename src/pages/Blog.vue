@@ -60,13 +60,14 @@
 <script>
 // or all tools are exported from the "all" file (excluding bonus plugins):
 import { gsap, ScrollTrigger } from "gsap/all";
-
+gsap.registerPlugin(ScrollTrigger); 
 export default {
   props: {},
   metaInfo: {
     title: "Blog",
   },
   mounted() {
+    gsap.registerPlugin(ScrollTrigger); 
     gsap.utils.toArray(".panel").forEach((panel, i) => {
       ScrollTrigger.create({
         trigger: panel,
