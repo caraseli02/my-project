@@ -32,7 +32,7 @@
       </figure>
       <!--Image Section-->
       <!--Items Section-->
-      <div class="flex flex-col lg:flex-row lg:justify-start justify-between w-full rounded-lg md:overflow-y-scroll md:my-16 md:flex-col z-20 ml-2 lg:w-1/2">
+      <div class="flex flex-col lg:flex-row lg:justify-start justify-between w-full rounded-lg overflow-y-scroll mt-24 z-20 ml-2 lg:w-1/2">
         <div v-for="(item, index) in items" :key="index" class="items w-32 mb-4 md:w-64 lg:ml-10 flex justify-center items-center flex-wrap">
           <figure class="bg-transparent" v-if="item.items.original">
             <picture

@@ -12,8 +12,10 @@
           :key="element.name"
         >
           <g-link
+            
             :to="element.link"
             class="link block py-2 px-5 text-black text-3xl hover:text-black"
+            :class="$route.path === element.link? 'text-white border-l-4 border-gray-500' : ''"
             active-class="is-active-link"
             exact-active-class="active text-black"
           >{{ element.name }}</g-link>

@@ -42,16 +42,16 @@ cloth: [
     "name": "Abrigo",
     "items": {
       "original": {
-        "src": "https://static.zara.net/photos///2020/I/0/1/p/8329/744/743/2/w/42/8329744743_6_1_1.jpg?ts=1599731304846",
-        "alt": "Imagen 0 de ABRIGO CON LANA de Zara",
-        "caption": "ABRIGO CON LANA",
-        "ref": "Color: Camel claro | 8329/744",
+        "src": "https://static.zara.net/photos///2020/I/0/1/p/8372/271/710/5/w/798/8372271710_6_2_1.jpg?ts=1605528837429",
+        "alt": "Imagen 0 de ABRIGO OVERSIZE de Zara",
+        "caption": "ABRIGO OVERSIZE",
+        "ref": "3046/315",
         "mark": "zara",
-        "price": "89,95 EUR",
-        "href": "https://www.zara.com/es/es/abrigo-con-lana-p08329744.html?v1=86517459"
+        "price": "49,95 EUR",
+        "href": "https://www.zara.com/es/es/abrigo-oversize-p03046315.html?v1=87513475&v2=1718076\u00e5"
       },
       "options": []
     }
-  }
+  },
 ]
 ---

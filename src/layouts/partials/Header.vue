@@ -19,7 +19,8 @@
         >
           <g-link
             :to="element.link"
-            class="link font-bold text-black hover:text-white"
+            class="link font-bold text-black"
+            :class="$route.path === element.link? 'text-gray-500  border-t-2 border-gray-500' : ''"
             active-class="is-active-link"
             exact-active-class="active text-white"
           >{{ element.name }}</g-link>

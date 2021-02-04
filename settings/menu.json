@@ -9,6 +9,10 @@
       "link": "/looks"
     },
     {
+      "name": "Blog",
+      "link": "/blog"
+    },
+    {
       "name": "Contact",
       "link": "/contact"
     }
