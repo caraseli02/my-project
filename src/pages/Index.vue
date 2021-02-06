@@ -25,26 +25,9 @@ export default {
       showItems: "",
       showShop: false,
       active: 0,
-      window: {
-        width: 0,
-        height: 0,
-      },
     };
   },
-  created() {
-    if (process.isClient) {
-      window.addEventListener("resize", this.handleResize);
-      this.handleResize();
-    }
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.handleResize);
-  },
   methods: {
-    handleResize() {
-      this.window.width = window.innerWidth;
-      this.window.height = window.innerHeight;
-    },
     setLook(value) {
       this.lookNr = value;
       gsap.fromTo(

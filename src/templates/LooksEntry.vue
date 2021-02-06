@@ -1,6 +1,9 @@
 <template>
   <Layout>
-    <g-link to="/looks" class="mt-16 ml-2 text-2xl text-gray-200 absolute top-0 z-30 rounded-full px-2 md:hidden">
+    <g-link
+      to="/looks"
+      class="mt-16 ml-2 text-2xl text-gray-200 absolute top-0 z-30 rounded-full px-2 md:hidden"
+    >
       &#8592;
     </g-link>
     <article
@@ -32,12 +35,18 @@
       </figure>
       <!--Image Section-->
       <!--Items Section-->
-      <div class="flex flex-col lg:flex-row lg:justify-start justify-between w-full rounded-lg overflow-y-scroll mt-24 z-20 ml-2 lg:w-1/2">
-        <div v-for="(item, index) in items" :key="index" class="items w-32 mb-4 md:w-64 lg:ml-10 flex justify-center items-center flex-wrap">
+      <div
+        id="grid"
+        class="grid grid-cols-2 grid-rows-3 gap-0 h-full w-full rounded-lg overflow-y-scroll z-20 mt-10 lg:flex lg:flex-row lg:justify-start lg:w-1/2"
+      >
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          class="items md:w-64 lg:ml-10 flex justify-start items-center flex-wrap"
+          :class="`item${index}`"
+        >
           <figure class="bg-transparent" v-if="item.items.original">
-            <picture
-              class="flex justify-center max-w-xs z-10"
-            >
+            <picture class="flex justify-center max-w-xs z-10">
               <g-link
                 class="z-10"
                 type="_black"
@@ -66,52 +75,52 @@
 
 
 <page-query>
-query($id: ID!) {
+  query($id: ID!) {
   looks(id: $id) {
-    cloth{
-      name
-      items{
-        original{
-          src
-          caption
-          href
-          alt
-          mark
-          ref
-          price
-        }
-        options{
-          src
-          href
-          alt
-          ref
-          mark
-          price
-        }
-      }
-    }
-    title
-    path
-    image(width:1050)
-    image_caption
-    excerpt
-    content
-    humanTime : created(format:"Do MMMM YYYY")
-    datetime : created(format:"ddd MMM DD YYYY hh:mm:ss zZ")
-    category {
-      title
-      path
-    }
-    author {
-      name
-    }
-    tags {
-      id
-      title
-      path
-    }
+  cloth{
+  name
+  items{
+  original{
+  src
+  caption
+  href
+  alt
+  mark
+  ref
+  price
   }
-}
+  options{
+  src
+  href
+  alt
+  ref
+  mark
+  price
+  }
+  }
+  }
+  title
+  path
+  image(width:1050)
+  image_caption
+  excerpt
+  content
+  humanTime : created(format:"Do MMMM YYYY")
+  datetime : created(format:"ddd MMM DD YYYY hh:mm:ss zZ")
+  category {
+  title
+  path
+  }
+  author {
+  name
+  }
+  tags {
+  id
+  title
+  path
+  }
+  }
+  }
 </page-query>
 
 <script>
@@ -174,7 +183,7 @@ export default {
     );
     gsap.fromTo(
       ".items",
-      { opacity: 0, x: 200},
+      { opacity: 0, x: 200 },
       { opacity: 1, x: 0, ease: "back", duration: 2.5, delay: 1 }
     );
   },
@@ -182,6 +191,38 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.item0 {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  align-self: end;
+  margin-bottom: 10px;
+}
+.item1 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  align-self: end;
+}
+.item3 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: end;
+  margin-bottom: 5px;
+}
+
+.item2 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 10px;
+}
+.item4 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  justify-self: end;
+  align-self: end;
+}
+
 .setSize {
   width: 100%;
   height: 100vh;

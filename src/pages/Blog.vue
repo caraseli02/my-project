@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <vue-scroll-snap :fullscreen="true">
-      <section class="child w-screen h-screen" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
+    <vue-glide v-model="activeSlide" :options="options" class="">
+      <vue-glide-slide class="child w-screen h-screen" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
         <div class="article-card bg-white overflow-hidden flex-1 relative">
           <g-link class="featured-image-link block relative overflow-hidden" :to="entry.node.path">
             <ul class="absolute top-0 left-0 flex mt-16 p-2 z-10">
@@ -10,9 +10,8 @@
                   entry.node.category.title }}</span>
               </li>
             </ul>
-            <figure>
-              <g-image class="block loaded h-screen w-auto mx-auto" :alt="entry.node.image_caption"
-                :src="entry.node.image" />
+            <figure class="h-screen overflow-y-scroll">
+              <g-image class="" :alt="entry.node.image_caption" :src="entry.node.image" />
             </figure>
           </g-link>
           <div
@@ -30,40 +29,40 @@
             </div>
           </div>
         </div>
-      </section>
-    </vue-scroll-snap>
+      </vue-glide-slide>
+    </vue-glide>
   </Layout>
 </template>
 
 <script>
   // or all tools are exported from the "all" file (excluding bonus plugins):
   import { gsap, ScrollTrigger } from "gsap/all";
-  import VueScrollSnap from "vue-scroll-snap";
-  gsap.registerPlugin(ScrollTrigger);
+  import { Glide, GlideSlide } from "vue-glide-js";
+  //gsap.registerPlugin(ScrollTrigger);
   export default {
     props: {},
     metaInfo: {
       title: "Blog",
     },
-    components: { VueScrollSnap },
-    mounted() {
-      ScrollTrigger.defaults({
-        toggleActions: "restart pause resume pause",
-      });
-
-      let sections = gsap.utils.toArray(".panel");
-
-      gsap.to(sections, {
-        yPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".panel",
-          pin: true,
-          scrub: 1,
-          snap: 1 / (sections.length - 1),
-          end: () => "+=" + document.querySelector(".container").offsetWidth,
+    data() {
+      return {
+        activeSlide: 0,
+        options: {
+          autoplay: 5000,
+          bound: true,
+          breakpoints: {
+            450: {
+              perView: 1,
+            },
+            1024: {
+              perView: 2,
+            },
+          },
         },
-      });
+      };
+    },
+    mounted() {
+
     },
   };
 </script>

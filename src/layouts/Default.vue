@@ -8,9 +8,19 @@
     >
       <HeaderPartial class="absolute" />
 
-      <main id="main" class="main inner flex flex-1 flex-col py-0">
+      <main
+        v-if="window.width < 450"
+        id="main"
+        class="main inner flex flex-1 flex-col py-0"
+      >
         <slot />
       </main>
+      <div v-else class="w-screen h-screen onlyMobile">
+        <p class="absolute top-0 left-0 mt-32 text-3xl w-full flex items-center justify-center">
+          We apologize for the inconveniences.<br> We currently are working to
+          improve ours web.<br> For now its only support mobile devices
+        </p>
+      </div>
 
       <FooterPartial />
     </div>
@@ -35,10 +45,33 @@ import FooterPartial from "~/layouts/partials/Footer.vue";
 import ResponsiveNav from "~/layouts/partials/ResponsiveNav.vue";
 
 export default {
+  data() {
+    return {
+      window: {
+        width: 0,
+        height: 0,
+      },
+    };
+  },
   components: {
     HeaderPartial,
     FooterPartial,
     ResponsiveNav,
+  },
+  created() {
+    if (process.isClient) {
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
+    }
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
   },
 };
 </script>
@@ -73,7 +106,7 @@ export default {
   height: 1.7em;
   position: absolute;
   right: 5px;
-  top:30%;
+  top: 30%;
 }
 
 .svg-icon path,
@@ -102,4 +135,9 @@ export default {
   opacity: 0;
 }
 /* //ICONS */
+.onlyMobile {
+  background-image: url("../assets/icons/logoNegro@2x.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 </style>
