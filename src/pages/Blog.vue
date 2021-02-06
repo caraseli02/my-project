@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <article class="swipeView">
-      <section class="" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
+      <section class="panel" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
         <div class="article-card bg-white overflow-hidden flex-1 relative">
           <g-link class="featured-image-link block relative " :to="entry.node.path">
             <ul class="absolute top-0 left-0 flex mt-16 p-2 z-10">
               <li class="mr-2">
-                <span class="inline-block bg-pink-500 px-4 py-2 text-white text-xs font-bold rounded">{{
+                <span class="inline-block bg-ds2 px-4 py-2 text-gray-800 text-xs font-bold rounded">{{
                   entry.node.category.title }}</span>
               </li>
             </ul>
@@ -17,10 +17,10 @@
           <div
             class="p-2 z-20 absolute w-full mx-auto bottom-0 h-64 flex flex-col justify-between items-center rounded-none text-center">
             <h2 class="text-5xl mt-2">
-              <g-link class="block text-white italic hover:text-pink-500" :to="entry.node.path">{{ entry.node.title }}
+              <g-link class="block text-white italic hover:text-gray-500" :to="entry.node.path">{{ entry.node.title }}
               </g-link>
             </h2>
-            <div class="self-start text-sm text-gray-100 md:flex mb-4">
+            <div class="self-end text-xs text-gray-800 font-bold p-1 glass-light md:flex mb-2">
               <p class="author">{{ entry.node.author.name }}</p>
               <p class="hidden md:block px-2">—</p>
               <time :datetime="entry.node.datetime">{{
@@ -44,6 +44,22 @@
       title: "Blog",
     },
     mounted() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      let sections = gsap.utils.toArray(".panel");
+
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "body",
+          pin: true,
+          scrub: 1,
+          snap: 1 / (sections.length - 1),
+          // base vertical scrolling on how wide the container is so it feels more natural.
+          end: () => "+=" + document.querySelector(".swipeView").offsetWidth
+        }
+      });
     },
   };
 </script>
@@ -75,7 +91,7 @@
 <style scoped lang="scss">
   .swipeView {
     display: grid;
-    grid-template-columns: repeat(4, 100%);
+    grid-template-columns: repeat(2, 100%);
     will-change: transform;
     align-content: center;
     overflow-x: auto;
