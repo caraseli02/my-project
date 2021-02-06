@@ -1,6 +1,7 @@
 <template>
   <Layout>
-      <section class="panel" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
+    <article class="swipeView">
+      <section class="" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
         <div class="article-card bg-white overflow-hidden flex-1 relative">
           <g-link class="featured-image-link block relative " :to="entry.node.path">
             <ul class="absolute top-0 left-0 flex mt-16 p-2 z-10">
@@ -29,6 +30,7 @@
           </div>
         </div>
       </section>
+    </article>
   </Layout>
 </template>
 
@@ -71,8 +73,20 @@
 </page-query>
 
 <style scoped lang="scss">
+  .swipeView {
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    will-change: transform;
+    align-content: center;
+    overflow-x: auto;
+    scroll-snap-coordinate: 0 0;
+    scroll-snap-points-x: repeat(100%);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
-  .child {
+  section {
+    height: 100%;
     scroll-snap-align: start;
   }
 </style>
