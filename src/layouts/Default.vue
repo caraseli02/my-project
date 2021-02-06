@@ -9,18 +9,17 @@
       <HeaderPartial class="absolute" />
 
       <main
-        v-if="window.width < 450"
         id="main"
         class="main inner flex flex-1 flex-col py-0"
       >
         <slot />
       </main>
-      <div v-else class="w-screen h-screen onlyMobile">
+      <!-- <div v-else class="w-screen h-screen onlyMobile">
         <p class="absolute top-0 left-0 mt-32 text-3xl w-full flex items-center justify-center">
           We apologize for the inconveniences.<br> We currently are working to
           improve ours web.<br> For now its only support mobile devices
         </p>
-      </div>
+      </div> -->
 
       <FooterPartial />
     </div>
