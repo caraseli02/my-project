@@ -2,7 +2,7 @@
   <Layout>
     <g-link
       to="/looks"
-      class="mt-16 ml-2 text-2xl text-gray-200 absolute top-0 z-30 rounded-full px-2 md:hidden"
+      class="mt-16 ml-2 text-2xl text-gray-900 absolute top-0 z-30 rounded-full px-2 glass-light round-full"
     >
       &#8592;
     </g-link>

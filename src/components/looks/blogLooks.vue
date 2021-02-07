@@ -6,9 +6,9 @@
       <g-link
         v-if="!flipped"
         :to="looks[lookNr].node.path"
-        class="absolute z-20 transform rotate-90 mt-48 -ml-16
-              md:mt-64 md:-ml-24
-              lg:mt-64 lg:-ml-40
+        class="absolute bottom-0 z-20 mb-
+              md:mb-64 
+              lg:mb-64 
               "
       >
         <h2
