@@ -73,6 +73,7 @@
                 ></g-image> -->
                 <g-image
                   :src="looks[lookNr].node.cloth[0].items.original['src']"
+                  :alt="looks[lookNr].node.cloth[0].items.original['alt']"
                   class="mx-auto"
                 ></g-image>
 
