@@ -30,7 +30,7 @@ cloth: [
     "name": "falda",
     "items": {
       "original": {
-        "src": "https://st.mngbcn.com/rcs/pics/static/T7/fotos/S20/77067881_99_B.jpg?ts=1596530018206&imwidth=258&imdensity=1",
+        "src": "https://st.mngbcn.com/rcs/pics/static/T7/fotos/S20/77067881_99_B.jpg",
         "alt": "Minifalda tweed cadena - Plano medio",
         "caption": "Minifalda tweed cadena",
         "ref": "77067881",

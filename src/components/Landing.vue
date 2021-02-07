@@ -53,7 +53,7 @@
         class="landingMedia"
         src="../assets/img/Landing/bolsoMark.jpg"
       ></g-image>
-      <div
+      <!-- <div
         class="seq z-10 h-screen company text-white transform rotate-45 translate-y-56 translate-x-40 hidden lg:block"
       >
         <h6
@@ -63,7 +63,7 @@
         >
           {{ mark }}
         </h6>
-      </div>
+      </div> -->
       <div class="seq z-20 absolute w-full textBg glass-dark container">
         <div class="max-w-xl mx-auto w-full">
           <h1 class="text-center text-white text-6xl font-bold">
@@ -82,17 +82,17 @@
         <p
           class="text-2xl text-white px-4 text-center max-w-xl mx-auto w-full p-4"
         >
-          Un blog de moda para complementar mi Instagrama.
+          <!-- Un blog de moda para complementar mi Instagrama. -->
           <g-link
             class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
             to="/looks"
             >looks gallery &#8594;</g-link
           >
-          <g-link
+          <!-- <g-link
             class="block bg-black hover:bg-gray-100 text-gray-300 py-2 px-4 mt-4 rounded-full shadow-lg text-lg font-bold"
             to="/blog"
             >fashon blog &#8594;</g-link
-          >
+          > -->
         </p>
       </div>
     </section>

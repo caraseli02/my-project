@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <article class="swipeView">
-      <section class="panel" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
+      <section class="" v-for="entry in $page.allBlog.edges" :key="entry.node.id">
         <div class="article-card bg-white overflow-hidden flex-1 relative">
           <g-link class="featured-image-link block relative " :to="entry.node.path">
             <ul class="absolute top-0 left-0 flex mt-16 p-2 z-10">
@@ -11,7 +11,7 @@
               </li>
             </ul>
             <figure class="">
-              <g-image class="" :alt="entry.node.image_caption" :src="entry.node.image" />
+              <g-image class="h-full w-auto" :alt="entry.node.image_caption" :src="entry.node.image" />
             </figure>
           </g-link>
           <div
@@ -44,22 +44,7 @@
       title: "Blog",
     },
     mounted() {
-      gsap.registerPlugin(ScrollTrigger);
 
-      let sections = gsap.utils.toArray(".panel");
-
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: "body",
-          pin: true,
-          scrub: 1,
-          snap: 1 / (sections.length - 1),
-          // base vertical scrolling on how wide the container is so it feels more natural.
-          end: () => "+=" + document.querySelector(".swipeView").offsetWidth
-        }
-      });
     },
   };
 </script>
@@ -90,15 +75,10 @@
 
 <style scoped lang="scss">
   .swipeView {
-    display: grid;
-    grid-template-columns: repeat(2, 100%);
-    will-change: transform;
-    align-content: center;
-    overflow-x: auto;
-    scroll-snap-coordinate: 0 0;
-    scroll-snap-points-x: repeat(100%);
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    max-height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+
   }
 
   section {

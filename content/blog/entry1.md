@@ -9,12 +9,9 @@ image_caption: Photo by DailyStyle
 author: author1
 ---
 
-## Loci ego fuit
+## ¡No hay nada más clásico que un abrigo camel, y nada más chic!
 
-Lorem markdownum tollere. *Qua opes egentes* cur, et trunca carpserat
-tulitquemuneris foedumque patriumque pisces vices sed eadem quam! **Cupidinis
-nostro Issen**; pinus cumulo tanget ego **aera dea** fugientem fortia publica
-cum, ipsum.
+Si todavía no lo tienes, es una buena adquisición para comprar en rebajas. Un clásico que nunca pasa de moda.
 
 ## Terrae sic nunc crinem violaeque armaque
 
@@ -36,26 +33,6 @@ feretur rupta, me cernis firmat! Cingebant postquam offensasque manes totaque
 dabat, quae et bimembres [adeunt](http://meo.org/suo-livor.html) Medea atque.
 Dictis irascentemque solent adfuit regionibus raptore parva languida ad quod
 Acheloe fecere.
-
-```
-  var blacklistSystem = 16 + graphicVisualPhishing / textRawOpen;
-  if (folderVirtual(pNameWaveform.osi(null, kerning_power_flowchart, 2),
-          -5)) {
-      file_viral.opacity(python_mouse_memory);
-      doubleUnicode = pop_cyberspace_pipeline.windows.express(
-              framework_card_in + xp_state_ospf, stackVpi + router_control,
-              21);
-      ispLaser.antivirus(page_animated_row);
-  } else {
-      dualExcel.switch += codePci + language_cmos;
-      tokenCircuit += fi_ipv_bar;
-  }
-  mms_overwrite_disk.realityBitRam.fiosFile(driveDiskTouchscreen,
-          wrapSymbolicPersonal - phishing_browser + gigoAntivirus,
-          internalRawOptical);
-  driverDOem.station_cyberbullying.smmAddress(4);
-  binTruncateSerp.trojan /= matrix_digital_plagiarism;
-```
 
 ## Sagittas ille leoni
 

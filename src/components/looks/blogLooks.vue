@@ -2,11 +2,14 @@
   <article>
     <!-- ======================== -->
     <!-- Just Copy The Code Below -->
-    <section class="main-card">
+    <section class="main-card lg:ml-20">
       <g-link
         v-if="!flipped"
         :to="looks[lookNr].node.path"
-        class="absolute z-20"
+        class="absolute z-20 transform rotate-90 mt-48 -ml-16
+              md:mt-64 md:-ml-24
+              lg:mt-64 lg:-ml-40
+              "
       >
         <h2
           class="lookAnimateText p-2 pl-4 mr-4 border-none rounded-l-none glass-dark text-gray-300 max-w-xl text-lg"
@@ -27,7 +30,7 @@
             ></g-image> -->
             <g-link :to="looks[lookNr].node.path">
               <g-image
-                class="mini-img lookAnimateImg"
+                class="lookAnimateImg md:h-screen md:w-auto md:mx-auto mt-2"
                 :alt="looks[lookNr].node.image_caption"
                 :src="looks[lookNr].node.image"
               ></g-image
@@ -75,7 +78,7 @@
 
                 <figcaption class="itemInfo w-full">
                   <ul
-                    class="flex justify-between px-4 pt-2 h-24 glass-light flex-col"
+                    class="flex justify-between px-4 pt-2 h-24  flex-col"
                   >
                     <li class="text-left text-3xl font-bold">
                       {{ looks[lookNr].node.cloth[0].items.original["mark"] }}
@@ -108,7 +111,7 @@
                 ></g-image>
                 <figcaption class="itemInfo w-full">
                   <ul
-                    class="flex justify-between px-4 pt-2 h-24 glass-light flex-col"
+                    class="flex justify-between px-4 pt-2 h-24  flex-col"
                   >
                     <li class="text-left text-3xl font-bold">
                       {{ looks[lookNr].node.cloth[0].items.options[0]["mark"] }}
@@ -141,7 +144,7 @@
                 ></g-image>
                 <figcaption class="itemInfo w-full">
                   <ul
-                    class="flex justify-between px-4 pt-2 h-24 glass-light flex-col"
+                    class="flex justify-between px-4 pt-2 h-24  flex-col"
                   >
                     <li class="text-left text-3xl font-bold">
                       {{ looks[lookNr].node.cloth[0].items.options[1]["mark"] }}
@@ -223,6 +226,12 @@ export default {
           },
           1024: {
             perView: 4,
+          },
+          1440: {
+            perView: 5,
+          },
+          1920: {
+            perView: 5,
           },
         },
       },

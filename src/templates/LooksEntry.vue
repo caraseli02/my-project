@@ -17,11 +17,11 @@
       <!--Background Animation-->
       <!--Image Section-->
       <figure
-        class="img z-10 w-full flex flex-col justify-end items-end mx-auto absolute top-0 md:bottom-0"
+        class="img z-10 w-full flex flex-col justify-end items-end mx-auto absolute top-0 md:bottom-0 xl:justify-base xl:items-end"
         @click="itemNr = null"
       >
         <g-image
-          class="z-10 md:max-w-md"
+          class="z-10 h-full md:w-auto"
           :alt="$page.looks.image_caption"
           :src="$page.looks.image"
         />
@@ -37,29 +37,33 @@
       <!--Items Section-->
       <div
         id="grid"
-        class="grid grid-cols-2 grid-rows-3 gap-0 h-full w-full rounded-lg overflow-y-scroll z-20 mt-10 lg:flex lg:flex-row lg:justify-start lg:w-1/2"
+        class="grid grid-cols-2 grid-rows-3 gap-0 h-full w-full rounded-lg overflow-y-scroll z-20
+        md:w-2/5 md:my-10
+        lg:w-1/2 lg:mt-16 lg:mb-0
+        xl:w-2/3
+        "
       >
         <div
           v-for="(item, index) in items"
           :key="index"
-          class="items md:w-64 lg:ml-10 flex justify-start items-center flex-wrap"
+          class="items w-32 lg:w-full lg:ml-10 flex justify-start items-center flex-wrap"
           :class="`item${index}`"
         >
-          <figure class="bg-transparent" v-if="item.items.original">
-            <picture class="flex justify-center max-w-xs z-10">
+          <figure class="bg-transparent lg:flex" v-if="item.items.original">
+            <picture class="flex justify-center max-w-xs lg:max-w-lg z-10">
               <g-link
                 class="z-10"
                 type="_black"
                 :to="item.items.original['href']"
               >
                 <g-image
-                  class="w-20 md:w-40 lg:w-64 h-full shadow-lg rounded-t-lg cover"
+                  class="w-20 xl:w-40 h-full shadow-lg rounded-t-lg cover"
                   :src="item.items.original['src']"
                 ></g-image>
               </g-link>
             </picture>
             <figcaption
-              class="text-center flex flex-col justify-center p-2 w-32 md:w-64 text-base uppercase glass-light z-30"
+              class="text-center flex flex-col justify-center p-2 w-32 text-base uppercase glass-light z-30"
             >
               {{ item.items.original["mark"] }}
               <span class="text-xs md:text-lg">{{
@@ -215,6 +219,8 @@ export default {
   justify-self: end;
   align-self: end;
   margin-bottom: 10px;
+
+  
 }
 .item4 {
   grid-column: 2 / 3;
